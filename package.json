@@ -1,7 +1,7 @@
 {
-  "name": "template",
+  "name": "Prueba1",
   "version": "1.0.0",
-  "description": "Template con Stack Tecnologico para comenzar a desarrollar",
+  "description": "Descripci\u00f3n del proyecto Prueba1",
   "main": "dist/index.js",
   "scripts": {
     "start": "ts-node src/index.ts",
