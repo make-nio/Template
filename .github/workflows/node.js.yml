@@ -26,4 +26,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: make-nio/template:latest
+          tags: make-nio/${{ github.repository }}:latest
