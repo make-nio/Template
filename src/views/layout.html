@@ -4,24 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/main.css">
 </head>
-<body>
-    <header>
-        <!-- Tu navegación o encabezado aquí -->
+<body class="body-custom">
+   <!-- Navbar con Bulma en modo oscuro -->
+    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand open-menu">
+            <!-- Logo o nombre de la app aquí -->
+            <a id="menu-toggle" role="button" class="is-dark has-text-white navbar-item" aria-label="menu" aria-expanded="false">
+                <span class="icon center-item">
+                    <i class="fas fa-bars fa-lg"></i> <!-- Icono de menú -->
+                </span>
+            </a>
+        </div>
+
+        <!-- Menú lateral oculto -->
+        <aside id="sidebar" class="menu has-background-dark is-hidden">
+            <p class="menu-label center-item">Menú</p>
+            {% block menu %}
+            <!-- El contenido dinámico va aquí -->
+            {% endblock %}
+        </aside>
+
+        <!-- Menú en el extremo derecho -->
+        <div class="navbar-end">
+            {% block usermenu %}
+            {% endblock %}
+            <!-- Más elementos del menú -->
+        </div>
+    </nav>
+
+    <!-- Hero para el header en modo oscuro -->
+    <header class="header hero open-menu">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">App Template Header</h1>
+            </div>
+        </div>
     </header>
 
-    <main>
-        {% block content %}
-        {% endblock %}
+    <!-- Sección principal -->
+    <main class="section main-content open-menu">
+        <div class="container">
+            {% block content %}
+            <!-- El contenido dinámico va aquí -->
+            {% endblock %}
+        </div>
     </main>
 
-    <footer>
-        <!-- Tu pie de página aquí -->
-        <p>&copy; 2024 Mi App</p>
+    <!-- Footer en modo oscuro -->
+    <footer class="footer hero footer-custom open-menu">
+        <div class="content has-text-centered">
+            <p>&copy; 2024 Mi App</p>
+        </div>
     </footer>
 
     <script src="/js/bundle.js"></script>
 </body>
 </html>
-
