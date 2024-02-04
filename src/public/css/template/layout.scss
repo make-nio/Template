@@ -1,0 +1,98 @@
+/* Definición de variables de colores */
+$background-color: #343541; // Gris azulado claro
+$text-color: #F2F4F8; // Color de texto en blanco
+
+/* Estilos generales del body */
+.body-custom {
+  background-color: $background-color;
+  color: $text-color;
+  min-height: 100vh; /* Altura mínima del body al 100% de la ventana */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilos del header */
+.header {
+  margin-top: 3.25rem;
+}
+
+/* Estilos del contenido principal */
+.main-content {
+  flex-grow: 1; /* Expansión del contenido principal para llenar el espacio */
+}
+
+/* Estilos del menú lateral */
+.menu-label {
+  padding: 1rem 1.5rem;
+  background-color: #262626 !important;
+}
+
+/* Estilos por defecto del navbar (no fijo) */
+.navbar {
+  width: 100%;
+  z-index: 10; /* Prioridad en la capa superior */
+}
+
+/* Estilos para pantallas más grandes (modo normal) */
+@media screen and (min-width: 769px) {
+  .navbar {
+    position: fixed;
+    top: 0;
+  }
+
+  .main-content {
+    margin-top: 3.25rem; /* Ajuste del margen superior según la altura del navbar */
+  }
+}
+
+/* Estilos de la marca del navbar */
+.navbar-brand {
+  align-items: center;
+  display: flex;
+  height: 100%; /* Altura total de la navbar */
+}
+
+.navbar-min{
+  min-width: 150px;
+}
+
+/* Estilos para centrar ítems dentro del navbar */
+.center-item {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  height: 100%; /* Altura total de la navbar-brand */
+}
+
+/* Estilos del footer */
+.footer-custom {
+  padding: 1rem 1.5rem;
+  color: $text-color; /* Color del texto */
+}
+
+/* Estilos del menú lateral (sidebar) */
+#sidebar {
+  background-color: $background-color;
+  color: $text-color;
+  width: 250px;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  left: -250px; /* Oculto inicialmente */
+  transition: left 0.5s;
+  z-index: 2000;
+
+  &.is-active {
+    left: 0; /* Visible cuando está activo */
+  }
+}
+
+/* Transición suave para el contenido principal al abrir el menú */
+.open-menu {
+  transition: margin-left 0.5s;
+}
+
+/* Desplazamiento del contenido principal cuando el menú está activo */
+.body-custom.has-sidebar-active .open-menu {
+  margin-left: 250px;
+}

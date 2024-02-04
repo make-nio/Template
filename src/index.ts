@@ -6,9 +6,13 @@ import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
 import https from 'https'; // Importar módulo https
 import fs from 'fs'; // Importar módulo fs para leer archivos
+import bodyParser from 'body-parser';
 
 const PORT = process.env.PORT || 3000;
 const app = express();
+// Configurar body-parser para analizar solicitudes JSON
+app.use(bodyParser.json());
+
 app.use(cookieParser());
 
 // Configuración de Nunjucks

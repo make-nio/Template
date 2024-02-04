@@ -48,7 +48,7 @@ export const loginMenuData = (isUserLoggedIn: boolean) : LoginData => {
                     nombre:'Iniciar Sesión', 
                     icono:'fa-sign-in-alt', 
                     id:'login',
-                    href:'#'
+                    href:'/login'
                 }
             ]
     };
