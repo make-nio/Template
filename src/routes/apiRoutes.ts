@@ -1,6 +1,6 @@
 // routes/apiRoutes.ts
 import { Router } from 'express';
-import { apiDefault, login, logout } from '../controllers/apiController'
+import { apiDefault, login, logout, enviarNotificacion, ejecutarAccionFrontend, comunicarConBackend } from '../controllers/apiController'
 
 const router = Router();
 
@@ -15,5 +15,12 @@ router.post('/apiDefault', apiDefault);
 router.post('/login', login);
 
 router.post('/logout', logout);
+
+router.post('/enviarNotificacion', enviarNotificacion);
+
+router.post('/ejecutarAccionFrontend', ejecutarAccionFrontend);
+
+router.post('/comunicarConBackend', comunicarConBackend);
+
 
 export default router;

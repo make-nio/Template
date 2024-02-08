@@ -1,7 +1,7 @@
 import axios from 'axios';
 import toastr from 'toastr';
 import { CustomError } from '../../../helpers/errorManager';
-import { showToast } from '../../../helpers/showToast';
+import { showToastError } from '../../../helpers/showToast';
 
 // Función para manejar la tecla Enter en el campo de contraseña
 export const handleEnterKeyPress = async (loginButton: HTMLElement | null, event: KeyboardEvent): Promise<void> => {
@@ -31,7 +31,7 @@ export const handleLoginClick = async (usuarioInput: HTMLInputElement | null,con
     } catch (error: any) {
       const customError = CustomError.fromError(error);
       customError.logError();
-      showToast(customError);
+      showToastError(customError);
     }
   };
   
@@ -45,6 +45,6 @@ export const handleLoginClick = async (usuarioInput: HTMLInputElement | null,con
     } catch (error: any) {
       const customError = CustomError.fromError(error);
       customError.logError();
-      showToast(customError);
+      showToastError(customError);
     }
   };

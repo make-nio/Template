@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { setAuthCookie, clearAuthCookie } from '../services/backend/beMenuServices';
 import { CustomError } from '../helpers/errorManager';
+import { publishToQueue } from '../helpers/redisQueue';
 
 export const apiDefault = async (req: Request, res: Response) : Promise<any> => {
     return res.status(200).json({ mensaje: 'Salida' });
@@ -41,3 +42,27 @@ export const logout = async (req: Request, res: Response): Promise<any> => {
     return res.status(200).json({ mensaje: 'Cierre de sesión exitoso' });
 };
 
+
+// API para enviar una notificación personalizada
+export const enviarNotificacion = async (req: Request, res: Response) => {
+    const { type, message, title, options } = req.body;
+    const notificacion = JSON.stringify({ type, message, title, options });
+    publishToQueue('canal_notificaciones', notificacion);
+    return res.status(200).json({ success: true, message: 'Notificación enviada.' });
+};
+
+// API para ejecutar una acción personalizada en el frontend
+export const ejecutarAccionFrontend = async (req: Request, res: Response) => {
+    const { action, data } = req.body; // data puede incluir cualquier dato necesario para la acción
+    const accion = JSON.stringify({ action, data });
+    publishToQueue('canal_accion_frontend', accion);
+    return res.status(200).json({ success: true, message: 'Acción enviada al frontend.' });
+};
+
+// API para comunicación entre backends
+export const comunicarConBackend = async (req: Request, res: Response) => {
+    const { type, message } = req.body;
+    const mensajeBackend = JSON.stringify({ type, message });
+    publishToQueue('canal_comunicacion_backend', mensajeBackend);
+    return res.status(200).json({ success: true, message: 'Mensaje enviado al canal de backend.' });
+};
