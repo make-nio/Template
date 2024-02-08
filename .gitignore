@@ -130,4 +130,9 @@ dist
 .pnp.*
 
 package-lock.json
-public/
+
+# Ignorar el directorio 'public' en la raíz del proyecto
+/public/
+
+# No ignorar el directorio 'public' dentro del directorio 'src'
+!/src/public/

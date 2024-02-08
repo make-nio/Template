@@ -16,5 +16,18 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "no-use-before-define": "off",
+        "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^(next|req|res)" }],
+        "no-unused-vars": ["error", { "argsIgnorePattern": "^(next|req|res)" }],
+        "camelcase": "warn",
+        "prefer-const": "error",
+        "no-const-assign": "error",
+        "no-console": "off",
+        "no-alert": "error",
+        "no-multi-spaces": "error",
+        "@typescript-eslint/no-var-requires": "off",
+        "eqeqeq": "error",
+        "quotes": ["error", "single", { "allowTemplateLiterals": true }],
+        "@typescript-eslint/no-explicit-any": "off"
     }
 }

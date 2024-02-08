@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block menu %}
+
+<ul class="menu-list">
+    <!-- Elementos del menú principal -->
+    {% for item in menuitems %}
+        <li><a class="navbar-item" {% if item.id %}id="{{ item.id }}"{% endif %} href="{{ item.href }}">{% if item.icono %}<i class="fas {{ item.icono }}"></i> {% endif %}&nbsp; {{ item.nombre }}</a></li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
+
+{% block usermenu %}
+
+<div class="navbar-item has-dropdown is-hoverable navbar-min">
+    <a class="navbar-link">
+        <!-- Espacio para la carita del usuario -->
+        <i class="fas fa-user-circle"></i>
+         &nbsp;{{ login.nombre }}
+    </a>
+
+    <div class="navbar-dropdown">
+        <!-- Mini menú para el usuario dinámico -->
+        {% for item in login.items %}
+            <a class="navbar-item" {% if item.id %}id="{{ item.id }}"{% endif %} href="{{ item.href }}">{% if item.icono %}<i class="fas {{ item.icono }}"></i> {% endif %} &nbsp; {{ item.nombre }}</a>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+
