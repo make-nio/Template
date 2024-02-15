@@ -1,7 +1,9 @@
+//src/public/js/functions/loginFunctions.ts
 import axios from 'axios';
 import toastr from 'toastr';
 import { CustomError } from '../../../helpers/errorManager';
 import { showToastError } from '../../../helpers/showToast';
+import callApi from '../../../helpers/callApi'
 
 // Función para manejar la tecla Enter en el campo de contraseña
 export const handleEnterKeyPress = async (loginButton: HTMLElement | null, event: KeyboardEvent): Promise<void> => {
@@ -23,7 +25,12 @@ export const handleLoginClick = async (usuarioInput: HTMLInputElement | null,con
     }
   
     try {
-      const response = await axios.post('/api/login', {user: usuarioInput.value, password: contrasenaInput.value});
+      const params = {
+        user: usuarioInput.value, 
+        password: contrasenaInput.value
+      }
+      
+      const response = await axios.post('/api/login', params);
   
       console.log('Inicio de sesión:', response.data);
       window.location.href = '/';
@@ -36,15 +43,16 @@ export const handleLoginClick = async (usuarioInput: HTMLInputElement | null,con
   };
   
   // Función para manejar el clic en el botón de logout
-  export const handleLogoutClick = async (event: MouseEvent): Promise<void> => {
-    event.preventDefault();
-    try {
-      const response = await axios.post('/api/logout');
-      console.log('Cierre de sesión:', response.data);
-      window.location.reload();
-    } catch (error: any) {
-      const customError = CustomError.fromError(error);
-      customError.logError();
-      showToastError(customError);
-    }
-  };
+export const handleLogoutClick = async (token: HTMLInputElement | null, event: MouseEvent): Promise<void> => {
+  event.preventDefault();
+  try {
+    const auth: string = token?.value || '';
+    const response = await callApi('/api/logout',{}, auth);
+    console.log('Cierre de sesión:', response.data);
+    window.location.reload();
+  } catch (error: any) {
+    const customError = CustomError.fromError(error);
+    customError.logError();
+    showToastError(customError);
+  }
+};

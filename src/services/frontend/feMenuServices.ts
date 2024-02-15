@@ -13,9 +13,9 @@ interface MenuItem {
     items: MenuItem[];
   }
   
-export const loginMenuData = (isUserLoggedIn: boolean) : LoginData => {
+export const loginMenuData = (isUserLoggedIn: boolean, nombre: string) : LoginData => {
     const loginLogged: LoginData = {
-        nombre: 'Juan Perez',
+        nombre: nombre,
         items: [
                 {
                     nombre:'Perfil',

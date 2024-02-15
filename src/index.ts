@@ -1,5 +1,6 @@
 import express from 'express';
 import https from 'https'; // Importar módulo https
+import http from 'http';
 import fs from 'fs'; // Importar módulo fs para leer archivos
 import nunjucks from 'nunjucks';
 import path from 'path';
@@ -8,8 +9,10 @@ import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import { initializeWebSocket } from './config/websocketService';
+import { Request, Response } from 'express';
 
-const PORT = process.env.PORT || 3000;
+const HTTP_PORT = process.env.HTTP_PORT || 3000; // Puerto para HTTP
+const HTTPS_PORT = process.env.HTTPS_PORT ||3443; // Puerto para HTTPS, diferente al de HTTP
 const app = express();
 
 // Configuración de Nunjucks
@@ -52,6 +55,22 @@ const httpsServer = https.createServer(httpsOptions, app);
 initializeWebSocket(httpsServer); // Cambio realizado aquí
 
 // El puerto para HTTPS debe ser diferente al del HTTP
-httpsServer.listen(PORT, () => {
-  console.log(`Servidor HTTPS escuchando en el puerto ${PORT}`);
+httpsServer.listen(HTTPS_PORT, () => {
+  console.log(`Servidor HTTPS escuchando en el puerto ${HTTPS_PORT}`);
+});
+
+// Crear un servidor HTTP que redirige a HTTPS
+const httpApp = express();
+httpApp.use((req: Request, res: Response, next) => {
+  if (!req?.secure) {
+    const secureUrl = `https://${req?.headers?.host?.replace(`${HTTP_PORT}`, `${HTTPS_PORT}`)}${req.url}`;
+    res.redirect(301, secureUrl);
+  } else {
+    next();
+  }
+});
+
+const httpServer = http.createServer(httpApp);
+httpServer.listen(HTTP_PORT, () => {
+  console.log(`Servidor HTTP escuchando en el puerto ${HTTP_PORT} y redirigiendo a HTTPS`);
 });
