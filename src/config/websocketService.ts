@@ -28,7 +28,7 @@ const onConnection = async (socket: Socket): Promise<void> => {
     const token: string = socket?.handshake?.auth?.token;
     try {
       // Verifica el token
-      const secret: string = process.env.ACCESS_TOKEN_SECRET || 'ex1gmMMOySfu3nGHOySfu3nGH';
+      const secret: string = process.env.ACCESS_TOKEN_SECRET || '';
       const user: any = jwt.verify(token, secret);
       console.log('Usuario autenticado:', user);
       console.log('Nuevo cliente conectado con id:', socket.id);
