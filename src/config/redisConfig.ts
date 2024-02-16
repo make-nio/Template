@@ -6,9 +6,9 @@ dotenv.config();
 
 // Configuración predeterminada
 const defaultOptions: any = {
-  host: process.env.REDIS_HOST || '192.168.1.103',
+  host: process.env.REDIS_HOST || '',
   port: Number(process.env.REDIS_PORT) || 6379,
-  password: process.env.REDIS_PASSWORD || '0f6c4315',
+  password: process.env.REDIS_PASSWORD || '',
   retryStrategy: (times: number) => Math.min(times * 50, 2000),
   //TODO: Averiguar si al usar createRedisInstance esto tiene un TTL y se desconecta por timeout, cuanto dura ese TTL y si se reconecta automaticamente.
 };
