@@ -1,3 +1,4 @@
+//src/public/js/login.ts
 import { handleEnterKeyPress, handleLoginClick, handleLogoutClick } from './functions/loginFunctions'
 
 // Tipado explícito para los elementos del DOM
@@ -6,6 +7,9 @@ const logoutButton: HTMLElement | null = document.getElementById('logout');
 
 const usuarioInput: HTMLInputElement | null = document.querySelector('input[name="username"]');
 const contrasenaInput: HTMLInputElement | null = document.querySelector('input[name="password"]');
+
+const token: HTMLInputElement | null = document.querySelector('input[name="token"]');
+
 
 // Manejadores de eventos:
 
@@ -18,4 +22,4 @@ if (contrasenaInput) {
 loginButton?.addEventListener('click', (event) => handleLoginClick(usuarioInput, contrasenaInput, event));
 
 //Manejador de eventos para el botón de logout
-logoutButton?.addEventListener('click', handleLogoutClick);
+logoutButton?.addEventListener('click', (event) => handleLogoutClick(token, event));

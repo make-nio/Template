@@ -136,3 +136,5 @@ package-lock.json
 
 # No ignorar el directorio 'public' dentro del directorio 'src'
 !/src/public/
+!/src/public/js/
+!/src/public/js/main.ts

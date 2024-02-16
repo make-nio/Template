@@ -1,14 +1,15 @@
+//src/helpers/callApi.ts
 import axios, { AxiosResponse } from 'axios';
-import { Request } from 'express';
 
-const callApi = async (req: Request, par: object, url: string): Promise<AxiosResponse<any>> => {
+const callApi = async (url: string, par: object | null, token: string): Promise<AxiosResponse<any>> => {
     try {
         // Extrae los headers de la solicitud original y agrega cualquier header de seguridad que consideres necesario
         const headers = {
-            ...req.headers,
             'Content-Type': 'application/json', // Asegúrate de que el Content-Type sea el adecuado para tu solicitud
+            'authorization': 'Bearer ' + token
             // Aquí puedes agregar más headers de seguridad
         };
+        console.log(headers)
 
         // Realiza la solicitud con axios
         const result = await axios.post(url, par, { headers });
@@ -19,6 +20,8 @@ const callApi = async (req: Request, par: object, url: string): Promise<AxiosRes
         throw err;
     }
 };
+
+
 
 export default callApi;
 

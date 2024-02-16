@@ -1,4 +1,4 @@
-
+//src/public/js/menu.ts
 import { handleClick } from './functions/menuFunctions';
 
 // Tipado explícito para los elementos del DOM

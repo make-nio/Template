@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "commons/layout.html" %}
 
 {% block menu %}
 
@@ -27,6 +27,7 @@
         {% endfor %}
     </div>
 </div>
+<input type="hidden" name="token" id="token" value="{{ token }}"/>
 
 {% endblock %}
 

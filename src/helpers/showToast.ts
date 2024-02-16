@@ -41,3 +41,10 @@ export const showToast = (type: 'error' | 'success' | 'info' | 'warning', messag
       toastr.info(message, title, toastrOptions);
   }
 };
+
+
+// Configura las opciones de Toastr
+toastr.options = {
+  closeButton: true, // Muestra un botón de cierre en las notificaciones
+  progressBar: true, // Muestra una barra de progreso en las notificaciones
+};

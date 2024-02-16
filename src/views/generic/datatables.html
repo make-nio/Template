@@ -1,0 +1,22 @@
+{% extends "commons/menu.html" %}
+
+{% block content %}
+<table id="miTabla" class="table is-striped" style="width:100%">
+    <thead>
+        <tr>
+            {% for cabecera in datosTabla.cabeceras %}
+                <th>{{ cabecera }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for fila in datosTabla.valores %}
+            <tr>
+                {% for valor in fila %}
+                    <td>{{ valor }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

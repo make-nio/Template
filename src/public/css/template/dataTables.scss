@@ -1,0 +1,114 @@
+// Variables de color
+$color-principal: #3D3D3D;
+$color-secundario: #646464;
+$color-borde: #828282;
+
+// Estilos para DataTables
+.dt-search input,
+.dt-length select {
+  border-color: $color-principal !important;
+  color: $color-principal !important;
+}
+
+table.dataTable {
+  thead {
+    th {
+      background-color: $color-principal !important;
+
+      &:hover {
+        background-color: $color-secundario !important;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      &:hover {
+        background-color: $color-borde !important;
+      }
+    }
+  }
+
+  .dt-paging {
+    button {
+      background-color: $color-principal !important;
+      color: $color-borde !important;
+
+      &:hover {
+        background-color: $color-secundario !important;
+        color: $color-principal !important;
+      }
+
+      &.disabled,
+      &:disabled {
+        background-color: transparent !important;
+        color: $color-principal !important;
+      }
+    }
+  }
+}
+
+// Seleccionar el número de entradas
+.dt-length select {
+  background-color: transparent !important;
+  color: $color-borde !important;
+}
+
+// Búsqueda en DataTables
+.dt-search input {
+  background-color: transparent !important;
+  color: $color-borde !important;
+}
+
+// Estilos para los botones de paginación
+.dt-paging button {
+  background-color: transparent !important;
+  color: $color-borde !important;
+
+  &:hover {
+    background-color: $color-secundario !important;
+  }
+
+  &.current {
+    background-color: $color-principal !important;
+  }
+
+  &.disabled {
+    color: darken($color-principal, 20%) !important;
+  }
+}
+
+
+.top-right {
+  float: right;
+}
+
+.top-left {
+  float: left;
+}
+
+.bottom-left {
+  float: left;
+}
+
+.bottom-right {
+  float: right;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  // Asegúrate de que no hay un relleno o margen extra que desalinee los elementos
+  .dataTables_length, .dataTables_filter {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+
+.dt-button-info {
+  background-color: $color-secundario !important; // Usa !important solo si es necesario
+  // Puedes añadir otros estilos aquí si es necesario
+}
