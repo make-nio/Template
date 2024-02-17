@@ -21,4 +21,4 @@ El template aprovecha tecnologías modernas y probadas, como Node.js para el bac
 
 ## Cómo Utilizar la Documentación
 
-Esta documentación está diseñada para ser un recurso integral para comprender y utilizar el Template. Te recomendamos que comiences con la sección de [Instalación y Configuración](Instalacion_y_Configuracion.md) y luego procedas a revisar la [Estructura del Proyecto](Estructura_del_Proyecto.md). Para obtener detalles sobre cómo implementar las funciones específicas del template, consulta la sección [Uso del Template](Uso_del_Template.md).
+Esta documentación está diseñada para ser un recurso integral para comprender y utilizar el Template. Te recomendamos que comiences con la sección de [Instalación y Configuración](docs/Instalacion_y_Configuracion.md) y luego procedas a revisar la [Estructura del Proyecto](docs/Estructura_del_Proyecto.md). Para obtener detalles sobre cómo implementar las funciones específicas del template, consulta la sección [Uso del Template](docs/Uso_del_Template.md).
