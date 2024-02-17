@@ -12,7 +12,7 @@ import { initializeWebSocket } from './config/websocketService';
 import { Request, Response } from 'express';
 
 const HTTP_PORT = process.env.HTTP_PORT || 3000; // Puerto para HTTP
-const HTTPS_PORT = process.env.HTTPS_PORT ||3443; // Puerto para HTTPS, diferente al de HTTP
+const HTTPS_PORT = process.env.HTTPS_PORT || 3443; // Puerto para HTTPS, diferente al de HTTP
 const app = express();
 
 // Configuración de Nunjucks

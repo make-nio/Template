@@ -1,7 +1,7 @@
 // routes/apiRoutes.ts
 import { Router } from 'express';
 import { authenticateToken } from '../middlewares/authMiddleware';
-import { apiDefault } from '../controllers/apiController'
+import { apiDefault, apiMockDefault } from '../controllers/apiController'
 
 const router = Router();
 
@@ -12,5 +12,7 @@ router.get('/health', (req, res) => {
 
 // Puedes añadir más rutas de la API aquí...
 router.post('/apiDefault', authenticateToken, apiDefault);
+
+router.post('/apiMockDefault', authenticateToken, apiMockDefault);
 
 export default router;

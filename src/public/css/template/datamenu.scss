@@ -1,0 +1,39 @@
+/* Definición de variables de colores */
+$background-color: #343541; // Gris azulado claro
+$text-color: #F2F4F8; // Color de texto en blanco
+
+/* Estilos para las solapas */
+.custom-tabs {
+    margin-bottom: 1rem !important;
+  
+    li {
+      border-bottom: 3px solid transparent !important;
+      &:hover, &.is-active {
+        background-color: darken($background-color, 10%) !important;
+        border-color: $text-color !important;
+      }
+      a {
+        background-color: darken($background-color, 10%) !important;
+        color: $text-color !important;
+        &:hover {
+          color: darken($text-color, 10%) !important;
+        }
+      }
+    }
+  }
+  
+  /* Estilo para el botón "Traer DataTable" */
+  .custom-button {
+    background-color: darken($background-color, 10%) !important;
+    color: $text-color !important;
+    border: none !important;
+    padding: 0.75rem 1.5rem !important;
+    font-size: 1rem !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s, color 0.3s !important;
+  
+    &:hover {
+      background-color: darken($background-color, 20%) !important;
+      color: lighten($text-color, 10%) !important;
+    }
+  }
