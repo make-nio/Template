@@ -30,6 +30,7 @@ Con las variables de entorno configuradas, puedes ejecutar el script de la sigui
 
 ```bash
 python main.py
+```
 
 ## El script realizará las siguientes acciones:
 
