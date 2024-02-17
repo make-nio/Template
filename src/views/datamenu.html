@@ -1,0 +1,16 @@
+{% extends "commons/menu.html" %}
+
+{% block content %}
+<div class="tabs is-boxed is-centered">
+    <ul>
+      <li data-api="ruta1" class="is-active"><a>Ruta 1</a></li>
+      <li data-api="ruta2"><a>Ruta 2</a></li>
+      <li data-api="ruta3"><a>Ruta 3</a></li>
+    </ul>
+  </div>
+
+<button id="traerDataTable" class="button is-primary">Traer DataTable</button>
+<div id="dataTableContainer"></div>
+
+{% endblock %}
+

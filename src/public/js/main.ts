@@ -11,7 +11,8 @@ import 'toastr/build/toastr.min.css';
 import './webSocket'
 import 'jquery'
 import './functions/datatableFunctions';
+import '../css/template/datamenu.scss';
+
 
 console.log('¡JavaScript Iniciado!');
-
 

@@ -1,3 +1,4 @@
+import callApiServer from '../../helpers/callApiServer'
 
 // Definiendo una interfaz para cada ítem del menú
 interface MenuItem {
@@ -69,8 +70,8 @@ export const menuData = (): MenuItem[] => {
         href:'/'
     },
     {
-        nombre:'Item1', 
-        href:'#'
+        nombre:'DataMenu', 
+        href:'/datamenu'
     },
     {
         nombre:'Item2', 
@@ -93,3 +94,21 @@ export const menuData = (): MenuItem[] => {
     return menu;
 };
 
+export const getApiForDatatables = async (token: string) : Promise<any> => {
+
+    
+    const apiUrl: string | undefined = process.env.API_URL;
+
+    const response: any = await callApiServer(`${apiUrl}/api/apiMockDefault`, {}, token);
+
+    const datos: any[] = response.data;
+
+    const cabeceras: string[] = datos.length > 0 ? Object.keys(datos[0]) : [];
+
+    const datosTabla: any = {
+        cabeceras: cabeceras,
+        valores: datos
+    };
+
+    return datosTabla;
+};
