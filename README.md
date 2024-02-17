@@ -12,9 +12,9 @@ Bienvenido al Template. Este proyecto proporciona un stack tecnológico robusto 
 
 ## Contenido
 
-- [Introducción](Introduccion.md)
-- [Instalación y Configuración](Instalacion_y_Configuracion.md)
-- [Estructura del Proyecto](Estructura_del_Proyecto.md)
-- [Uso del Template](Uso_del_Template.md)
-- [Seguridad y Rendimiento](Seguridad_y_Rendimiento.md)
+- [Introducción](docs/Introduccion.md)
+- [Instalación y Configuración](docs/Instalacion_y_Configuracion.md)
+- [Estructura del Proyecto](docs/Estructura_del_Proyecto.md)
+- [Uso del Template](docs/Uso_del_Template.md)
+- [Seguridad y Rendimiento](docs/Seguridad_y_Rendimiento.md)
 
