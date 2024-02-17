@@ -12,7 +12,7 @@
     <tbody>
         {% for fila in datosTabla.valores %}
             <tr>
-                {% for valor in fila %}
+                {% for key, valor in fila %}
                     <td>{{ valor }}</td>
                 {% endfor %}
             </tr>

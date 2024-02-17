@@ -1,12 +1,11 @@
 //src/public/js/functions/datatableFunctions.ts
-import pdfmake from 'pdfmake';
-import jszip from 'jszip';
 import DataTable from 'datatables.net-bm';
+import jszip from 'jszip';
 import 'datatables.net-autofill-bm';
 import 'datatables.net-buttons-bm';
-import 'datatables.net-buttons/js/buttons.colVis.js';
-import 'datatables.net-buttons/js/buttons.html5.js';
-import 'datatables.net-buttons/js/buttons.print.js';
+import 'datatables.net-buttons/js/buttons.colVis';
+import 'datatables.net-buttons/js/buttons.html5';
+import 'datatables.net-buttons/js/buttons.print';
 import 'datatables.net-colreorder-bm';
 import 'datatables.net-responsive-bm';
 import 'datatables.net-rowreorder-bm';
@@ -15,12 +14,14 @@ import 'datatables.net-select-bm';
 import 'datatables.net-bm/css/dataTables.bulma.css';
 import 'datatables.net-autofill-bm/css/autoFill.bulma.css'
 import 'datatables.net-buttons-bm/css/buttons.bulma.css'
-import 'datatables.net-colreorder-bm/css/colReorder.bulma.css'
+import 'datatables.net-colreorder-bm/css/colReorder.bulma.css' 
 import 'datatables.net-responsive-bm/css/responsive.bulma.css'
 import 'datatables.net-rowreorder-bm/css/rowReorder.bulma.css'
 import 'datatables.net-select-bm/css/select.bulma.css'
 
 import '../../css/template/dataTables.scss';
+
+DataTable.Buttons.jszip(jszip);
 
 // Luego, en tu script principal donde inicializas DataTables:
 document.addEventListener('DOMContentLoaded', function() {
@@ -31,11 +32,26 @@ document.addEventListener('DOMContentLoaded', function() {
     // Configuración de la extensión Buttons
     buttons: [
       {
-        extend: 'csv',
-        filename: 'dataTables'
-        // Aquí puedes agregar más opciones específicas para el botón CSV si es necesario
+        extend: 'copy',
+        text: '<i class="far fa-copy"></i>',
+        titleAttr: 'Copiar'
       },
-      'excel','copy','print' // Los otros botones siguen igual
+      {
+        extend: 'csv',
+        filename: 'dataTables',
+        text: '<i class="fas fa-file-csv"></i>',
+        titleAttr: 'CSV'
+      },
+      {
+        extend: 'excel',
+        text: '<i class="fas fa-file-excel"></i>',
+        titleAttr: 'Excel'
+      },
+      {
+        extend: 'print',
+        text: '<i class="fas fa-print"></i>',
+        titleAttr: 'Imprimir'
+      }
     ]
   };
 
@@ -50,7 +66,8 @@ document.addEventListener('DOMContentLoaded', function() {
     select: true,
     rowReorder: true,
     colReorder: true,
-    autoFill: true
+    autoFill: true,
+    stateSave: true
   });
 
   
