@@ -1,3 +1,7 @@
 /* Importación de FontAwesome para iconos */
 @import '@fortawesome/fontawesome-free/css/all.css';
 
+
+::-webkit-scrollbar {
+    scrollbar-width: thin;
+}
