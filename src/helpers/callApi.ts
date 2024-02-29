@@ -1,5 +1,6 @@
 //src/helpers/callApi.ts
 import axios, { AxiosResponse } from 'axios';
+import { CustomError } from '../helpers/errorManager';
 
 const callApi = async (url: string, par: object | null, token: string): Promise<AxiosResponse<any>> => {
     try {
@@ -16,8 +17,10 @@ const callApi = async (url: string, par: object | null, token: string): Promise<
 
         return result;
     } catch (err: any) {
-        console.log(err.response?.data || err.message || err);
-        throw err;
+        // Convertir el error de Axios a CustomError
+        const customError = CustomError.fromError(err);
+        console.log(customError); // Opcional: loguear el error formateado
+        throw customError; // Lanzar el CustomError en lugar del error original de Axios
     }
 };
 

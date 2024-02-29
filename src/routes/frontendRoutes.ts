@@ -1,3 +1,4 @@
+//src/routes/frontendRoutes.ts
 import { Router } from 'express';
 import * as HomeController from '../controllers/homeController';
 
@@ -7,6 +8,7 @@ router.get('/', HomeController.index);
 router.get('/login', HomeController.login);
 router.get('/dataTable', HomeController.getTableData);
 router.get('/datamenu', HomeController.datamenu);
+router.get('/error', HomeController.error);
 // Si tienes otras rutas, por ejemplo para usuarios, podrías tener algo como esto:
 // router.get('/users', UserController.index);
 

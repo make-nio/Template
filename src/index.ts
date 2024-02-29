@@ -9,6 +9,7 @@ import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import { initializeWebSocket } from './config/websocketService';
+import errorFrontMiddleware from './middlewares/errorFrontMiddleware';
 import { Request, Response } from 'express';
 
 const HTTP_PORT = process.env.HTTP_PORT || 3000; // Puerto para HTTP
@@ -37,6 +38,9 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 
 // Uso de rutas
 app.use(routes);
+
+// Middleware para manejar errores.
+app.use(errorFrontMiddleware);
 
 // Ruta al archivo .pfx y su contraseña
 const pfxFilePath = path.join(__dirname, 'localhost.pfx');

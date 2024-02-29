@@ -1,6 +1,7 @@
 //src/helpers/callApi.ts
 import axios, { AxiosResponse } from 'axios';
 import https from 'https';
+import { CustomError } from '../helpers/errorManager';
 
 const agent = new https.Agent({  
   rejectUnauthorized: false // agregar esta línea desactiva la verificación de certificados
@@ -22,8 +23,10 @@ const callApiServer = async (url: string, par: object | null, token: string): Pr
 
         return result;
     } catch (err: any) {
-        console.log(err.response?.data || err.message || err);
-        throw err;
+        // Convertir el error de Axios a CustomError
+        const customError = CustomError.fromError(err);
+        console.log(customError); // Opcional: loguear el error formateado
+        throw customError; // Lanzar el CustomError en lugar del error original de Axios
     }
 };
 

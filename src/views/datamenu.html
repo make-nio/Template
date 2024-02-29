@@ -3,14 +3,30 @@
 {% block content %}
 <div class="tabs is-boxed is-centered">
     <ul>
-      <li data-api="ruta1" class="is-active"><a>Ruta 1</a></li>
-      <li data-api="ruta2"><a>Ruta 2</a></li>
-      <li data-api="ruta3"><a>Ruta 3</a></li>
+      {% for item in tabsdata %}
+      <li data-api="{{ item.href }}" {% if item.id %}class="{{ item.id }}"{% endif %}><a>{% if item.icono %}<i class="fas {{ item.icono }}"></i> {% endif %}&nbsp; {{ item.nombre }}</a></li>
+      {% endfor %}
     </ul>
   </div>
 
-<button id="traerDataTable" class="button is-primary">Traer DataTable</button>
+<button id="traerDataTable" class="button is-primary custom-button">Traer DataTable</button>
 <div id="dataTableContainer"></div>
 
 {% endblock %}
 
+
+
+
+<!-- TODO: Ver que el datamenu sea un componente separado del componente datatables, 
+  se trae desde la vista y arriba de este menu se trae por vista otro componente, 
+  llamarlo tabsmenu y meterlo en commons, separar la logica de javascript tb. 
+  Ver que onda el tema del header, deberia estar oculto por defecto, quizas deba ser una opcion del layout -->
+
+
+<!-- TODO: Analizar tambien como hacer para traer dinamicamente los css y js de cada componente desde el webpack solo cuando ese componente es consumido. -->
+
+<!-- TODO: Volver a preguntarle a chatgpt por el css retardado al cargar. -->
+
+<!-- TODO: Para el ABM, lo mismo, tendria que ser otro componente que se agrega sobre el datatables, quizas sin tantos botones, etc... -->
+
+<!-- TODO: En general, ver como integrar los componentes en las vistas finales, que pueda ser exportable tanto por AJAX como por vista. -->

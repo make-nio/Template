@@ -6,13 +6,13 @@ interface MenuItem {
     icono?: string;
     id?: string;
     href: string;
-  }
-  
-  // Definiendo una interfaz para el objeto login completo
-  interface LoginData {
+}
+
+ // Definiendo una interfaz para el objeto login completo
+interface LoginData {
     nombre: string;
     items: MenuItem[];
-  }
+}
   
 export const loginMenuData = (isUserLoggedIn: boolean, nombre: string) : LoginData => {
     const loginLogged: LoginData = {
@@ -111,4 +111,33 @@ export const getApiForDatatables = async (token: string) : Promise<any> => {
     };
 
     return datosTabla;
+};
+
+export const tabsData = (): MenuItem[] => {
+    const menu: MenuItem[] = [
+    {
+        nombre:'Ruta1',
+        id: 'is-active', 
+        icono:'fa-home', 
+        href:'ruta1'
+    },
+    {
+        nombre:'Ruta2', 
+        href:'ruta2'
+    },
+    {
+        nombre:'Ruta3', 
+        href:'ruta3'
+    },
+    {
+        nombre:'Ruta4', 
+        href:'ruta4'
+    },
+    {
+        nombre:'Ruta5', 
+        href:'ruta5 '
+    },
+];
+    
+    return menu;
 };

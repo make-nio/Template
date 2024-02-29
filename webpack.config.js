@@ -1,6 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
+const CopyWebpackPlugin = require('copy-webpack-plugin'); // Importa el plugin
 
 module.exports = {
   mode: 'development',
@@ -54,6 +55,11 @@ module.exports = {
       filename: '../css/[name].css',
     }),
     new VueLoaderPlugin(),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: 'src/public/images', to: path.resolve(__dirname, 'public/images') } // Ajusta las rutas según sea necesario
+      ],
+    }),
   ],
   devtool: 'inline-source-map',
 };
