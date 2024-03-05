@@ -57,7 +57,8 @@ module.exports = {
     new VueLoaderPlugin(),
     new CopyWebpackPlugin({
       patterns: [
-        { from: 'src/public/images', to: path.resolve(__dirname, 'public/images') } // Ajusta las rutas según sea necesario
+        { from: 'src/public/images', to: path.resolve(__dirname, 'public/images') }, // Ajusta las rutas según sea necesario
+        { from: 'src/public/icons', to: path.resolve(__dirname, 'public/icons') } 
       ],
     }),
   ],
